@@ -1,6 +1,7 @@
 import { ActivityType } from "discord.js";
 import { isDevMode } from "../utils/isDevMode.mjs";
 import { postSummaryToClient } from "../utils/postSummaryToClient.mjs";
+import { getBot } from "../utils/getBot.mjs";
 export async function handleReady(client) {
     client.user?.setPresence({
         status: "online"
@@ -9,7 +10,7 @@ export async function handleReady(client) {
         type: ActivityType.Watching
     });
     console.log(isDevMode() ? "Dev Mode Ready" : "Bot Ready");
-    setInterval(onInterval, 1000 * 30, client);
+    setInterval(onInterval, 1000 * getBot().refreshSeconds, client);
     onInterval(client);
 }
 async function onInterval(client) {

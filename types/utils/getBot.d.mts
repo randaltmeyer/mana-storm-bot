@@ -8,6 +8,7 @@ type Bot = {
     liveMatchListUrl: string;
     matchUrl: string;
     playerUrl: string;
+    refreshSeconds: number;
 };
 export declare function getBot(): Bot;
 export {};

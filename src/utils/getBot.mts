@@ -11,6 +11,8 @@ type Bot = {
 	liveMatchListUrl: string;
 	matchUrl: string;
 	playerUrl: string;
+
+	refreshSeconds: number;
 }
 
 let bot: Bot | undefined;
