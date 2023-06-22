@@ -1,0 +1,11 @@
+{
+	"id":"",
+	"token":"",
+	"homeId": "1101523659392286770",
+	"playgroundId": "",
+	"channelDataPath": "./channelData.json",
+	"liveMatchListUrl": "https://ccg-main.tinka.games/matchmaking-matches",
+	"liveMatchUrl": "https://ccg-main.tinka.games/matchmaking-match?id=",
+	"availablePlayerListUrl": "https://ccg-main.tinka.games/matchmaking-available-players",
+	"availablePlayerUrl": "https://ccg-main.tinka.games/player?id="
+}
