@@ -6,4 +6,3 @@ export async function setChannel(guildChannel) {
     getBot().setChannel({ guildId: guildChannel.guildId, channelId: guildChannel.id, messageId: "" });
     await postSummaryToGuild(guildChannel.guild);
 }
-//# sourceMappingURL=setChannel.mjs.map

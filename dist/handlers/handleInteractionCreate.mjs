@@ -8,4 +8,3 @@ export async function handleInteractionCreate(interaction) {
     }
     console.log(`interactionCreate: User(${interaction.user.tag}), Guild(${interaction.guild?.name})`);
 }
-//# sourceMappingURL=handleInteractionCreate.mjs.map

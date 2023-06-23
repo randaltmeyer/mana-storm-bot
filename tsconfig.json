@@ -6,7 +6,7 @@
 
 		"declaration": true,
 		"declarationDir": "./types",
-		"declarationMap": true,
+		// "declarationMap": true,
 
 		// "esModuleInterop": true,
 
@@ -34,7 +34,7 @@
 		"removeComments": true,
 		"rootDir": "./src",
 
-		"sourceMap": true,
+		// "sourceMap": true,
 		"strict": true,
 		"strictBindCallApply": true,
 		"strictFunctionTypes": true,

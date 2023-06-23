@@ -14,4 +14,3 @@ export function canRespond(messageOrInteraction) {
     }
     return false;
 }
-//# sourceMappingURL=canRespond.mjs.map

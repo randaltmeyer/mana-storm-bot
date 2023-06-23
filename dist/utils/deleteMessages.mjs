@@ -17,4 +17,3 @@ export async function deleteMessages(guildChannel) {
     }
     return lastMessageId;
 }
-//# sourceMappingURL=deleteMessages.mjs.map

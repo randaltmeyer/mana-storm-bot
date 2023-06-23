@@ -60,4 +60,3 @@ export async function createPayload() {
     const embeds = [embed];
     return { content: ``, embeds, availablePlayers: availablePlayerIds.length };
 }
-//# sourceMappingURL=createPayload.mjs.map

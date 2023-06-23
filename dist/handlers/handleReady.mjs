@@ -15,4 +15,3 @@ export async function handleReady(client) {
 async function onInterval(client) {
     postSummaryToClient(client);
 }
-//# sourceMappingURL=handleReady.mjs.map

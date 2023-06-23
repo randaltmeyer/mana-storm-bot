@@ -95,4 +95,3 @@ export class Bot {
     }
 }
 export function getBot() { return Bot.instance; }
-//# sourceMappingURL=getBot.mjs.map

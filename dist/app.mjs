@@ -14,4 +14,3 @@ const client = new Client(clientOptions);
 client.once("ready", handleReady);
 client.on("messageCreate", handleMessageCreate);
 client.login(getBot()?.token ?? "");
-//# sourceMappingURL=app.mjs.map

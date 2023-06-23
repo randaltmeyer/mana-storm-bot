@@ -29,4 +29,3 @@ export async function handleMessageCreate(message) {
         message.reply(`Hello ${userMention(message.author.id)}, something went wrong!`);
     }
 }
-//# sourceMappingURL=handleMessageCreate.mjs.map

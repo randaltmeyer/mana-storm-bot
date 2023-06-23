@@ -52,4 +52,3 @@ async function editMessage(guildMessage, payload) {
     await updateChannelTopic(guildMessage.channel, editPayload.availablePlayers);
     await guildMessage.edit(editPayload);
 }
-//# sourceMappingURL=postSummaryToChannel.mjs.map

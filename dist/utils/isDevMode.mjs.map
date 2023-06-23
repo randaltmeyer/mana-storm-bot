@@ -1,1 +1,0 @@
-{"version":3,"file":"isDevMode.mjs","sourceRoot":"","sources":["../../src/utils/isDevMode.mts"],"names":[],"mappings":"AAAA,IAAI,UAA+B,CAAC;AACpC,MAAM,UAAU,SAAS;IACxB,IAAI,UAAU,KAAK,SAAS,EAAE;QAC7B,UAAU,GAAG,OAAO,CAAC,IAAI,CAAC,QAAQ,CAAC,OAAO,CAAC,CAAC;KAC5C;IACD,OAAO,UAAU,CAAC;AACnB,CAAC"}

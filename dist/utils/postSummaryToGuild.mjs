@@ -13,4 +13,3 @@ export async function postSummaryToGuild(guild, payload) {
     }
     await postSummaryToChannel(guildChannel, payload);
 }
-//# sourceMappingURL=postSummaryToGuild.mjs.map
