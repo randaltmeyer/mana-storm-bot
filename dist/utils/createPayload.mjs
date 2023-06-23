@@ -57,6 +57,7 @@ export async function createPayload() {
     embed.setTitle("Mana Storm (Beta) Activity Summary");
     embed.setDescription(`Play here: <https://manastorm.tinka.games/play>\nChat here: <https://discord.gg/ewar6KvsEU>`);
     embed.addFields({ name: `**Available Players: ${availablePlayerIds.length}**`, value: playersOutput || `> *None*` }, { name: `**Active Matches: ${liveMatchIds.length}**`, value: matchesOutput || `> *None*` });
+    embed.setTimestamp(Date.now());
     const embeds = [embed];
     return { content: ``, embeds, availablePlayers: availablePlayerIds.length };
 }

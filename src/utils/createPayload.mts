@@ -83,6 +83,7 @@ export async function createPayload(): Promise<Payload> {
 		{ name:`**Active Matches: ${liveMatchIds.length}**`, value:matchesOutput || `> *None*` },
 		// { name:`*Last Updated*`, value:`<t:${unixNow}:R>` }
 	)
+	embed.setTimestamp(Date.now());
 	const embeds = [embed];
 
 	return { content:``, embeds, availablePlayers:availablePlayerIds.length };
