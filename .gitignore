@@ -3,9 +3,9 @@ node_modules
 types
 
 bot.json
+channelData.json
 dev.json
 deploy.zip
 
-channelData.json
 package-lock.json
 .DS_Store
