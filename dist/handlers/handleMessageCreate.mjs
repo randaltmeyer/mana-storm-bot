@@ -1,5 +1,4 @@
 import { PermissionFlagsBits, userMention } from "discord.js";
-import { getChannels } from "../utils/getChannels.mjs";
 import { postSummaryToChannel } from "../utils/postSummaryToChannel.mjs";
 import { setChannel } from "../utils/setChannel.mjs";
 import { canRespond } from "./canRespond.mjs";
@@ -17,17 +16,16 @@ export async function handleMessageCreate(message) {
                 await setChannel(message.channel);
             }
         }
-        else if (message.author.id !== getBot().id) {
-            const channel = getChannels().find(ch => ch.channelId === message.channelId);
+        else if (!getBot().isMyMessage(message)) {
+            const channel = getBot().findChannel(message.channelId);
             if (channel) {
-                await postSummaryToChannel(message.channel, channel.messageId);
+                await postSummaryToChannel(message.channel);
             }
         }
     }
     catch (ex) {
         console.error(ex);
-        console.debug(`messageCreate: User(${message.member?.user.tag}), Guild(${message.guild?.name})`);
-        console.debug(name);
+        console.debug(`messageCreate: User(${message.member?.user.username}), Guild(${message.guild?.name})`);
         message.reply(`Hello ${userMention(message.author.id)}, something went wrong!`);
     }
 }

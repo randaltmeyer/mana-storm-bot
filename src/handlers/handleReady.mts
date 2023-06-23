@@ -1,7 +1,6 @@
 import { ActivityType, Client } from "discord.js";
-import { isDevMode } from "../utils/isDevMode.mjs";
 import { postSummaryToClient } from "../utils/postSummaryToClient.mjs";
-import { getBot } from "../utils/getBot.mjs";
+import { Bot } from "../utils/getBot.mjs";
 
 export async function handleReady(client: Client): Promise<void> {
 	client.user?.setPresence({
@@ -12,9 +11,9 @@ export async function handleReady(client: Client): Promise<void> {
 		type: ActivityType.Watching
 	});
 
-	console.log(isDevMode() ? "Dev Mode Ready" : "Bot Ready");
+	console.log(Bot.isDevMode ? "Dev Mode Ready" : "Bot Ready");
 
-	setInterval(onInterval, 1000 * getBot().refreshSeconds, client);
+	setInterval(onInterval, 1000 * Bot.instance.refreshSeconds, client);
 	onInterval(client);
 }
 

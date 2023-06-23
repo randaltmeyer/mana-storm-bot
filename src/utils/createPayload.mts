@@ -1,6 +1,6 @@
 import { EmbedBuilder, MessageCreateOptions, MessageEditOptions } from "discord.js";
 import { getBot } from "./getBot.mjs";
-import { getJson } from "./getJson.mjs";
+import { getJson } from "./HttpUtils.mjs";
 
 type ListResult = { result:string[]; }
 type AvailablePlayerResult = { result:{ name:string; } }
@@ -83,7 +83,6 @@ export async function createPayload(): Promise<Payload> {
 		{ name:`**Active Matches: ${liveMatchIds.length}**`, value:matchesOutput || `> *None*` },
 		// { name:`*Last Updated*`, value:`<t:${unixNow}:R>` }
 	)
-	embed.setTimestamp(Date.now());
 	const embeds = [embed];
 
 	return { content:``, embeds, availablePlayers:availablePlayerIds.length };

@@ -1,7 +1,7 @@
-import { getChannels } from "./getChannels.mjs";
+import { getBot } from "./getBot.mjs";
 import { postSummaryToChannel } from "./postSummaryToChannel.mjs";
 export async function postSummaryToGuild(guild, payload) {
-    const channel = getChannels().find(ch => ch.guildId === guild.id);
+    const channel = getBot().findChannel(guild.id);
     if (!channel) {
         console.warn(`No channel for guild: ${guild.id} (${guild.name})`);
         return;
@@ -11,6 +11,6 @@ export async function postSummaryToGuild(guild, payload) {
         console.warn(`Not a text-based channel: ${channel.channelId} (${guildChannel?.name ?? "NO SUCH CHANNEL"})`);
         return;
     }
-    await postSummaryToChannel(guildChannel, channel.messageId, payload);
+    await postSummaryToChannel(guildChannel, payload);
 }
 //# sourceMappingURL=postSummaryToGuild.mjs.map

@@ -1,11 +1,10 @@
-import { isDevMode } from "../utils/isDevMode.mjs";
-import { getBot } from "../utils/getBot.mjs";
+import { Bot } from "../utils/getBot.mjs";
 export function canRespond(messageOrInteraction) {
     if (messageOrInteraction.member?.user.bot) {
         return false;
     }
-    const bot = getBot();
-    if (isDevMode()) {
+    const bot = Bot.instance;
+    if (Bot.isDevMode) {
         if (messageOrInteraction.guildId !== bot.playgroundId) {
             return false;
         }

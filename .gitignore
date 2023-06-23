@@ -2,7 +2,9 @@ deploy
 node_modules
 
 bot.json
+dev.json
 deploy.zip
+
 channelData.json
 package-lock.json
 .DS_Store

@@ -12,4 +12,9 @@ Read Messages / View Channels
 Send Messages
 Send Messages in Threads
 Use Slash Commands
+
+Stable
 https://discord.com/api/oauth2/authorize?client_id=1121464801130975352&permissions=277025393664&scope=bot%20applications.commands
+
+Dev
+https://discord.com/api/oauth2/authorize?client_id=1121864611642212433&permissions=277025393664&scope=bot%20applications.commands
