@@ -1,5 +1,6 @@
 deploy
 node_modules
+types
 
 bot.json
 dev.json
