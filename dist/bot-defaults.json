@@ -8,5 +8,5 @@
 	"matchUrl": "https://ccg-main.tinka.games/matchmaking-match?id=",
 	"availablePlayerListUrl": "https://ccg-main.tinka.games/matchmaking-available-players",
 	"playerUrl": "https://ccg-main.tinka.games/player?id=",
-	"refreshSeconds": 30
+	"refreshSeconds": 60
 }
