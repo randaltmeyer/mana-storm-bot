@@ -10,7 +10,8 @@ export function canRespond(messageOrInteraction) {
         }
     }
     if ("mentions" in messageOrInteraction) {
-        return messageOrInteraction.mentions.has(bot.id);
+        const mentions = messageOrInteraction.mentions;
+        return !mentions.everyone && mentions.has(bot.id);
     }
     return false;
 }
