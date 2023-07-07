@@ -1,4 +1,6 @@
 deploy
+dist/data
+logs
 node_modules
 types
 
@@ -9,3 +11,6 @@ deploy.zip
 
 package-lock.json
 .DS_Store
+
+aws.sh
+run-dev.sh

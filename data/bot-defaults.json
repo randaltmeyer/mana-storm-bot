@@ -3,7 +3,7 @@
 	"token":"",
 	"homeId": "1101523659392286770",
 	"playgroundId": "",
-	"channelDataPath": "./channelData.json",
+	"channelDataPath": "./data/channelData.json",
 	"liveMatchListUrl": "https://ccg-main.tinka.games/matchmaking-matches",
 	"matchUrl": "https://ccg-main.tinka.games/matchmaking-match?id=",
 	"availablePlayerListUrl": "https://ccg-main.tinka.games/matchmaking-available-players",
