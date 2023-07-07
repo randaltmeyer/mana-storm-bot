@@ -23,16 +23,10 @@ echoAndDo "rm -rf $deployDirLocal; mkdir $deployDirLocal"
 
 # build a tmp deploy folder and add files that need to get deployed
 echoAndDo "mkdir $deployDirLocal/tmp; cd $deployDirLocal/tmp"
-if [ "$PKG" = "data" ]; then
-	echoAndDo "echo 'ver 0.0.0' > version.txt"
-	echoAndDo "echo 'ver 0.0.0' > sage-data-pf2e.ver"
-	echoAndDo "cp -r $sageRootDir/data/pf2e/dist/* $deployDirLocal/tmp"
-else
-	# echoAndDo "cp -r $sageRootDir/node_modules $deployDirLocal/tmp"
-	echoAndDo "cp -r $sageRootDir/dist/sage* $deployDirLocal/tmp"
-	echoAndDo "cp $sageRootDir/dist/*.mjs $deployDirLocal/tmp"
-	echoAndDo "cp $sageRootDir/package.json $deployDirLocal/tmp"
-fi
+echoAndDo "cp -r $appRootDir/dist/handlers $deployDirLocal/tmp"
+echoAndDo "cp -r $appRootDir/dist/utils $deployDirLocal/tmp"
+echoAndDo "cp $appRootDir/dist/app.mjs $deployDirLocal/tmp"
+echoAndDo "cp $appRootDir/package.json $deployDirLocal/tmp"
 
 # zip deployment files
 echoAndDo "zip -rq9 $deployDirLocal/$PKG.zip *"
@@ -47,32 +41,20 @@ echoAndDo "rm -rf $deployDirLocal"
 
 # execute the deploy script on the remote
 NOW=`date '+%F-%H%M'`;
-if [ "$PKG" = "data" ]; then
-	sshCommands=(
-		# "zip -rq9 $packageDir/pf2e/dist-$NOW $packageDir/pf2e/dist"
-		"mv $packageDir/pf2e/dist $packageDir/pf2e/dist-$NOW"
-		"unzip -q $deployDirRemote/data -d $packageDir/pf2e/dist"
-		"rm -f $deployDirRemote/data.zip"
-		"pm2 desc sage-dev-$ENV >/dev/null && pm2 restart sage-dev-$ENV"
-		"pm2 desc sage-beta-$ENV >/dev/null && pm2 restart sage-beta-$ENV"
-		"pm2 desc sage-stable-$ENV >/dev/null && pm2 restart sage-stable-$ENV"
-	)
-else
-	packageDirTmp="$packageDir-tmp"
-	packageDirOld="$packageDir-$NOW"
-	sshCommands=(
-		"mkdir $packageDirTmp"
-		"ln -s $botDir/data $packageDirTmp/data"
-		"unzip -q $deployDirRemote/$PKG -d $packageDirTmp"
-		"rm -f $deployDirRemote/$PKG.zip"
-		"cd $packageDirTmp"
-		"npm install"
-		"pm2 desc sage-$PKG-$ENV >/dev/null && pm2 delete sage-$PKG-$ENV"
-		"mv $packageDir $packageDirOld"
-		"mv $packageDirTmp $packageDir"
-		"cd $packageDir"
-		"pm2 start app.mjs --name sage-$PKG-$ENV --node-args='--experimental-modules --es-module-specifier-resolution=node' -- $PKG dist"
-		"pm2 save"
-	)
-fi
+packageDirTmp="$packageDir-tmp"
+packageDirOld="$packageDir-$NOW"
+sshCommands=(
+	"mkdir $packageDirTmp"
+	"ln -s $botDir/data $packageDirTmp/data"
+	"unzip -q $deployDirRemote/$PKG -d $packageDirTmp"
+	"rm -f $deployDirRemote/$PKG.zip"
+	"cd $packageDirTmp"
+	"npm install"
+	"pm2 desc msb-$PKG-$ENV >/dev/null && pm2 delete msb-$PKG-$ENV"
+	"mv $packageDir $packageDirOld"
+	"mv $packageDirTmp $packageDir"
+	"cd $packageDir"
+	"pm2 start app.mjs --name msb-$PKG-$ENV"
+	"pm2 save"
+)
 sshRun "${sshCommands[@]}"
