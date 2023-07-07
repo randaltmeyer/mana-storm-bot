@@ -1,5 +1,6 @@
 deploy
 dist/data
+logs
 node_modules
 types
 
