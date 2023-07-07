@@ -72,7 +72,7 @@ export class Bot {
     static get instance() {
         if (!instance) {
             try {
-                const path = Bot.isDevMode ? "./dev.json" : "./bot.json";
+                const path = Bot.isDevMode ? "./data/dev.json" : "./data/bot.json";
                 const contents = readFileSync(path, "utf8");
                 const core = JSON.parse(contents);
                 instance = new Bot(core);
