@@ -9,5 +9,7 @@ dev.json
 deploy.zip
 
 package-lock.json
-run-dev.sh
 .DS_Store
+
+aws.sh
+run-dev.sh
